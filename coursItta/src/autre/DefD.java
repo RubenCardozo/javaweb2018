@@ -12,5 +12,8 @@ class DefD {//Acces package
     private void priMD(){
         
     }
+    protected void proMD(){
+        
+    }
 }
 
