@@ -19,7 +19,7 @@ public class LesFonctions {
         terrier.add(new Lievre("jessica",8));
         
         
-        
+        System.out.println("\n********************Consumer*********************************");
         Consumer<Lievre> affiche= (l)->System.out.println(l.getNom()+", "+l.getAge());
         Consumer<Lievre> ligne= (l)->System.out.println("--------------------------");
         
@@ -36,8 +36,8 @@ public class LesFonctions {
         terrier.removeIf((liev) -> liev.getAge()>10);
         terrier.forEach(affiche);
         
-//        Predicate<Lievre> func = (lie)-> lie.getAge()>10;
-//        terrier.removeIf(func);
+//        Predicate<Lievre> pre = (lie)-> lie.getAge()>10;
+//        terrier.removeIf(pre);
 //        terrier.forEach(affiche);
         
         
@@ -45,9 +45,7 @@ public class LesFonctions {
         System.out.println("\n********************Comparator: sort / age*********************************");
         
         terrier.replaceAll((li) -> new Lievre(li.getNom().toUpperCase(), li.getAge()+1));
-        
-        
-        
+
         terrier.sort(new Comparator<Lievre> () {
             @Override
             public int compare(Lievre o1, Lievre o2) {
