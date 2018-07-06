@@ -5,42 +5,43 @@
  */
 package coursittaocp.concurrency;
 
+import java.util.Arrays;
 import java.util.Random;
-import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.RecursiveTask;
 
 /**
  *
  * @author Administrator
  */
-public class MonAction extends RecursiveAction {
-
+public class MaTache extends RecursiveTask<Integer>{
     int[] data;
     int limGauche;
     int limDroit;
     Random r = new Random();
 
-    public MonAction(int[] data, int limGauche, int limDroit) {
+    public MaTache(int[] data, int limGauche, int limDroit) {
         this.data = data;
         this.limGauche = limGauche;
         this.limDroit = limDroit;
     }
 
     @Override
-    protected void compute() {
+    protected Integer compute() {
         if ((limDroit-limGauche) > 10) {//fork
             int moitie =((limDroit-limGauche)/2)+limGauche;
-            
-            MonAction m1 = new MonAction(data, limGauche, moitie);
+            MaTache m1 = new MaTache(data, limGauche, moitie);
             m1.fork();
-            MonAction m2 = new MonAction(data, moitie, limDroit);
-            m2.compute();
-            m1.join();
+            MaTache m2 = new MaTache(data, moitie, limDroit);
+            return m2.compute()+m1.join();
+           
         } else {// Tache à effectuer
-//            Thread courant = Thread.currentThread();
-//            System.out.println("Id:" + courant.getId() + "\t*Nom: " + courant.getName() + "\t*Priorité:" + courant.getPriority());
+            //return Arrays.stream(Arrays.copyOfRange(data, limDroit, limDroit)).sum();
+            int sum = 0;
             for (int i = limGauche; i < limDroit; i++) {
-                data[i] = r.nextInt(100);
+                sum+=data[i]; 
             }
+            return sum;
         }
+        
     }
 }

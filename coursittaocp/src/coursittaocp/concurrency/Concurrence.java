@@ -1,5 +1,6 @@
 package coursittaocp.concurrency;
 
+import java.text.NumberFormat;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
@@ -9,11 +10,31 @@ import java.util.logging.Logger;
 public class Concurrence {
 
     public static void main(String[] args) {
-        int[] tabi=new int[1000];
         
+        int[] tabi = new int[1000000];
+
         ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());
-        MonAction m=new MonAction(tabi,0,tabi.length); 
+        MonAction m = new MonAction(tabi, 0, tabi.length);
         pool.invoke(m);
+        //System.out.println(Arrays.toString(tabi));
+        
+        long lo = System.nanoTime();
+        MaTache mt = new MaTache(tabi, 0, tabi.length);
+        System.out.println("sum: " + pool.invoke(mt));
+        System.out.println("temps: " +NumberFormat.getInstance().format(System.nanoTime() - lo));
+        pool.shutdown();
+
+        lo = System.nanoTime();
+        System.out.println("sum 2: " + Arrays.stream(tabi).parallel().sum());
+        System.out.println("temps 2: " + NumberFormat.getInstance().format(System.nanoTime() - lo));
+
+        lo = System.nanoTime();
+        int sum = 0;
+        for (int i : tabi) {
+            sum += i;
+        }
+        System.out.println("sum: 3 = " + sum);
+        System.out.println("temps 3: " + NumberFormat.getInstance().format(System.nanoTime() - lo));
 
     }
 
@@ -53,10 +74,8 @@ public class Concurrence {
             System.out.println(ex);
         }
         exe.shutdown();
-        
-        
-        
-        new Thread( 
+
+        new Thread(
                 new FutureTask<>(
                         new MyCallable()
                 )
