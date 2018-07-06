@@ -14,6 +14,10 @@ public class BaseDeDonnees {
 
         try (Connection cnx = DriverManager.getConnection(url, user, login);
                 Statement stt = cnx.createStatement();) {
+            
+            
+            DatabaseMetaData mt = cnx.getMetaData();
+            
             String sql = "SELECT * FROM APP.CUSTOMER";
             ResultSet rs = stt.executeQuery(sql);
             ResultSetMetaData meta = rs.getMetaData();
