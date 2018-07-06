@@ -8,11 +8,15 @@ public class BaseDeDonnees {
 
     public static void main(String[] args) {
 
+        
+    }
+
+    private static void Selects() {
         String url = "jdbc:derby://localhost:1527/sample";
         String user = "app";
         String login = "app";
-System.out.println("******************createStatement*******************");
-         try (Connection cnx = DriverManager.getConnection(url, user, login);
+        System.out.println("******************createStatement*******************");
+        try (Connection cnx = DriverManager.getConnection(url, user, login);
                 Statement stt = cnx.createStatement();) {
             
             
