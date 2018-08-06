@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulaire</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Formulaire</h1>
+        <form action="managepersonne">
+            <label>Nom: </label><input name="nom" type="text" ><br>
+            <label>Age: </label><input name="age" type="number"><br>
+            <button type="submit">Ok</button>
+        </form>   
+        <div id="msg">
+            <script>
+                if (window.location.search.split("msg=")[0]) {
+                var msg = decodeURI(location.search.split("msg")[1]);
+                document.getElementById("msg").innerHTML=msg;
+            }
+            </script>   
+        </div>
+        <a href="http://localhost:8084/javaweb2018/personnes">Liste</a>
+    </body>
+</html>

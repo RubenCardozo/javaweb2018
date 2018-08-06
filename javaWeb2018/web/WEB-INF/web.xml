@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>Mon Appli configuré dans web.xml</display-name>
+    <context-param>
+        <param-name>configparam</param-name>
+        <param-value>Ceci est le paramètre d'init</param-value>
+    </context-param>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>listeners.AppListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextAttributeListener</description>
+        <listener-class>listeners.AppAttrListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>First</servlet-name>
         <servlet-class>coursweb.First</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Second</servlet-name>
+        <servlet-class>coursweb.Second</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagePersonne</servlet-name>
+        <servlet-class>coursweb.ManagePersonne</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Personnes</servlet-name>
+        <servlet-class>coursweb.Personnes</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>First</servlet-name>
         <url-pattern>/first</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>Second</servlet-name>
+        <url-pattern>/second</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagePersonne</servlet-name>
+        <url-pattern>/managepersonne</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Personnes</servlet-name>
+        <url-pattern>/personnes</url-pattern>
+    </servlet-mapping>
 </web-app>
