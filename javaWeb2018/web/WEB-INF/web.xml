@@ -43,6 +43,14 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Personnes</servlet-name>
+        
         <url-pattern>/personnes</url-pattern>
     </servlet-mapping>
+    <session-config>
+        <cookie-config>
+            <name>IdDeSession</name> 
+            <max-age>60</max-age>          
+        </cookie-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
 </web-app>
