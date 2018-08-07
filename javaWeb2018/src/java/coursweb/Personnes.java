@@ -29,15 +29,17 @@ public class Personnes extends HttpServlet {
             out.println("<title>Personnes</title>");
             out.println("</head>");
             out.println("<body>");
+            
             out.println("<h1>Personnes</h1>");
 
             //Personne p = (Personne) request.getAttribute("personne");
-            List<Personne> peuple = null;
+            //List<Personne> peuple = null;
             HttpSession s = request.getSession();
-            peuple = (List<Personne>) s.getAttribute("peuple");
+            List<Personne>peuple = (List<Personne>) s.getAttribute("peuple");
             
-            if (peuple instanceof List) {
+            if (!(peuple instanceof List)) {
                 peuple = new ArrayList<>();
+                s.setAttribute("peuple", peuple);
             }
             
             Personne p = (Personne)request.getAttribute("personne");
@@ -48,8 +50,9 @@ public class Personnes extends HttpServlet {
             }
 
             out.println("<ul>");
-            peuple.forEach(pe-> out.println("<li>" + pe.getNom() + " " + pe.getAge()));
+            peuple.forEach(pe-> out.println("<li>" + pe.getNom() + " " + pe.getAge()+"</li>"));
             out.println("</ul>");
+            out.println("<a href=\"Formulaire.html\">Formulaire</a>");
             out.println("</body>");
             out.println("</html>");
         }
