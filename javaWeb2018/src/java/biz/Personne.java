@@ -5,11 +5,13 @@
  */
 package biz;
 
-/**
- *
- * @author Administrator
- */
-public class Personne {
+import java.io.Serializable;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+public class Personne implements Serializable,  HttpSessionBindingListener{
     private String nom;
     private int age;
 
@@ -33,6 +35,16 @@ public class Personne {
         this.nom = nom;
         this.age = age;
     }
-    
+
+    @Override
+    public void valueBound(HttpSessionBindingEvent event) {
+        System.out.println(event.getName()+" ajoutée: "+this.getNom());
+    }
+
+    @Override
+    public void valueUnbound(HttpSessionBindingEvent event) {
+         System.out.println(event.getName()+" suprimée: "+this.getNom());
+    }
+
     
 }
