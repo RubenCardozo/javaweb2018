@@ -9,21 +9,54 @@ and open the template in the editor.
         <title>Formulaire</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
     </head>
     <body>
+
+
+
         <h1>Formulaire</h1>
         <form action="managepersonne">
-            <label>Nom: </label><input name="nom" type="text" ><br>
-            <label>Age: </label><input name="age" type="number"><br>
-            <button type="submit">Ok</button>
-            
+            <label>Nom: </label><input id="nom" name="nom" type="text" >
+            <label>Age: </label><input id="age" name="age" type="number"><script>
+
+            </script>
+            <button id="udp" name="maj" type="submit" value="udp">MàJ</button>
+            <button id="add" name="add" type="submit" value="add">ADD</button>
+
         </form>   
         <div id="msg">
             <script>
                 if (window.location.search.split("msg=")[0]) {
-                var msg = decodeURI(location.search.split("msg")[1]);
-                document.getElementById("msg").innerHTML=msg;
-            }
+                    var msg = decodeURI(location.search.split("msg")[1]);
+                    document.getElementById("msg").innerHTML = msg;
+                }
+
+                window.getCookie = function (name) {
+                    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                    if (match) {
+                        return match[2];
+                    }
+                }
+                var personEdit = getCookie("personEdit");
+                if (personEdit) {
+                    var ptu = personEdit.split("|");
+                    console.log(ptu);
+                    document.getElementById("nom").value = ptu[1];
+                    document.getElementById("age").value = ptu[2];
+                    document.getElementById("udp").value = ptu[0];
+                    document.getElementById("add").disabled = "disabled";
+                } else {
+                    document.getElementById("udp").disabled = "disabled";
+                }
+
+
+
+
             </script>   
         </div>
         <a href="http://localhost:8084/javaweb2018/personnes">Liste</a>
