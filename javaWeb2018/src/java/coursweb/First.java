@@ -35,7 +35,7 @@ public class First extends HttpServlet {
             getServletContext().setAttribute("a1", i + 1);
         }
 
-        resp.getWriter().print("<htmtl>"
+        resp.getWriter().print("<html>"
                 + "<body>"
                 + "<h1>Hello from " + getServletContext().getAttribute("a1") + " doGet Servlet</h1>"
                 + "</body>"

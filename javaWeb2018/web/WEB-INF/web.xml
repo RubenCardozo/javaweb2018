@@ -5,6 +5,38 @@
         <param-name>configparam</param-name>
         <param-value>Ceci est le paramètre d'init</param-value>
     </context-param>
+    <filter>
+        <filter-name>logFilter</filter-name>
+        <filter-class>filters.logFilter</filter-class>
+        <init-param>
+            <param-name>prefix</param-name>
+            <param-value>logueur</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>CheckFilter</filter-name>
+        <filter-class>filters.CheckFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>HeadingFilter</filter-name>
+        <filter-class>filters.HeadingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HeadingFilter</filter-name>
+        <servlet-name>First</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>logFilter</filter-name>
+        <servlet-name>Personnes</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>CheckFilter</filter-name>
+        <url-pattern>/personnes</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
     <listener>
         <description>ServletContextListener</description>
         <listener-class>listeners.AppListener</listener-class>
@@ -29,9 +61,14 @@
         <servlet-name>Personnes</servlet-name>
         <servlet-class>coursweb.Personnes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AsyncServlet</servlet-name>
+        <servlet-class>coursweb.AsyncServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
     <servlet-mapping>
         <servlet-name>First</servlet-name>
-        <url-pattern>/first</url-pattern>
+        <url-pattern>/premier</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Second</servlet-name>
@@ -43,13 +80,19 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Personnes</servlet-name>
-        
+        <url-pattern>/toto/personnes</url-pattern>
         <url-pattern>/personnes</url-pattern>
+        <url-pattern>/personnes.list</url-pattern>
+        <url-pattern>/personnes.php</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsyncServlet</servlet-name>
+        <url-pattern>/async</url-pattern>
     </servlet-mapping>
     <session-config>
         <cookie-config>
-            <name>IdDeSession</name> 
-            <max-age>60</max-age>          
+            <name>IdDeSession</name>
+            <max-age>60</max-age>
         </cookie-config>
         <session-timeout>5</session-timeout>
     </session-config>

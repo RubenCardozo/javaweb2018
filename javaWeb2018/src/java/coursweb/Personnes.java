@@ -100,18 +100,19 @@ public class Personnes extends HttpServlet {
             
 
                 
-            for (int i = 0; i < peuple.size(); i++) {
-                Personne pe = peuple.get(i);
-                 try {
-                    out.println("<li>" + pe.getNom() + " " + pe.getAge() + "</li>"
-                            + "<button id=\"del\" name=\"del\" value=\"" + URLEncoder.encode(pe.getNom(), "UTF-8") + "\" type=\"submit\">DEL</button>" + "</li>"
-                            + "<button id=\"maj\" name=\"maj\" value=\""+ i +"\" type=\"submit\">EDIT</button>" + "</li>");
-                } catch (UnsupportedEncodingException ex) {
-                    Logger.getLogger(Personnes.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            
-             
+//            for (int i = 0; i < peuple.size(); i++) {
+//                Personne pe = peuple.get(i);
+//                 try {
+//                    out.println("<li>" + pe.getNom() + " " + pe.getAge() + "</li>"
+//                            + "<button id=\"del\" name=\"del\" value=\"" + URLEncoder.encode(pe.getNom(), "UTF-8") + "\" type=\"submit\">DEL</button>" + "</li>"
+//                            + "<button id=\"maj\" name=\"maj\" value=\""+ i +"\" type=\"submit\">EDIT</button>" + "</li>");
+//                } catch (UnsupportedEncodingException ex) {
+//                    Logger.getLogger(Personnes.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+            //include Liste
+            request.setAttribute("peuple", peuple);
+            getServletContext().getRequestDispatcher("/liste").include(request, response);
 
             out.println("</ul>");
             out.println("</form> ");
