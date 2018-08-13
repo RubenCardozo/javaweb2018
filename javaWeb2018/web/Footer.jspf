@@ -1,0 +1,21 @@
+<%@page import="java.util.Enumeration"%>
+<%@page import="java.lang.String"%>
+<%@ page pageEncoding="UTF-8" %>
+<h3>Ceci est le footer</h3>
+<%= "I= "+pageContext.getAttribute("monInt") %>
+<%= "L= "+pageContext.findAttribute("L") %><br>
+<%= "L= "+pageContext.getAttribute("L", PageContext.SESSION_SCOPE) %><br>
+<%= "scope de i= "+pageContext.getAttributesScope("monInt") %><br>
+
+<% Enumeration<String> en = pageContext.getAttributeNamesInScope(pageContext.SESSION_SCOPE); 
+    while(en.hasMoreElements()){
+        String s = en.nextElement();
+%>
+<br>
+<%= s +" = "+pageContext.getAttribute(s, PageContext.SESSION_SCOPE)%>
+<%
+     }
+%>  
+
+
+
