@@ -34,6 +34,9 @@ public class Personne implements Serializable,  HttpSessionBindingListener{
         this.age = age;
     }
 
+    public Personne() {
+    }
+    
     public Personne(String nom, int age) {
         this.nom = nom;
         this.age = age;

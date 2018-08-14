@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" isErrorPage="true"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isErrorPage="true" isELIgnored="true"%>
 <!DOCTYPE html>
 
 <html>

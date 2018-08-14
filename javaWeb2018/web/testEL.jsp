@@ -8,6 +8,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="biz.Personne"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="hasard" uri="/WEB-INF/tlds/hasard" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,7 +33,29 @@
             lemap.put("leon", new Personne("Leon",40));
             lemap.put("marcel", new Personne("Marcel",25));
             pageContext.setAttribute("peuple", lemap);
+            response.addCookie(new Cookie("test","La valeur de test"));
+            String s="titi";
+            String s2 = "TITI"; 
+            pageContext.setAttribute("s", s);
+            pageContext.setAttribute("s2", s2);
+            
+
         %>
+        <br>
+        ${s = s2 }<br>
+        ${s}<br>
+        ${s ="tutu"}<br>
+        ${s}<br>
+        ${s=12345}<br>
+        ${s}<br>
+        ${s = lui.nom}<br>
+        ${peuple.paul= lui}<br>
+        ${peuple.paul.nom}<br>
+        
+        <h3>Functions: ${s = hasard:de(10)}; 
+            s= ${s}
+        </h3>
+        
         <br>
         ${"\""} ${zozo} ${'"'} ${' ${}'} ${" ${}"} ${'\''}
         <br>
@@ -67,7 +90,12 @@
         ${pageContext.request.parameterMap.size[0]}<br>
         ${pageContext.request.getParameter("size")}<br>
         ${param.size}<br>
-        ${paramValues.size[0]}
+        ${paramValues.size[0]}<br>
+        ${cookie.test.value}<br>
+        ${header.cookie}<br>
+        ${headerValues.cookie[0]}<br>
+        ${initParam.configparam}
+        
         
     </body>
 </html>
