@@ -37,8 +37,8 @@ public class ManagePersonne extends HttpServlet {
 //                    .forward(request, response);
 
         } catch (IOException | NumberFormatException | ServletException ex) {
-            String message = "parametres invalides";
-            response.sendRedirect("Formulaire.html?msg=" + message);
+            String message = "Parametres invalides";
+            response.sendRedirect("Formulaire.html?msg" + message);
         }
 
     }

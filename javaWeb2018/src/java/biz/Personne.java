@@ -18,6 +18,9 @@ public class Personne implements Serializable,  HttpSessionBindingListener{
     public String getNom() {
         return nom;
     }
+    public String getNom(boolean upper) {
+        return upper?nom.toUpperCase():nom.toLowerCase();
+    }
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -46,5 +49,7 @@ public class Personne implements Serializable,  HttpSessionBindingListener{
          System.out.println(event.getName()+" suprimée: "+this.getNom());
     }
 
-    
+    public String getNomComplet(){
+    return "Je suis "+nom+", j'ai "+age;
+    }
 }
