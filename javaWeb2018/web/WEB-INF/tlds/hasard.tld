@@ -11,4 +11,11 @@
             int lanceDe(int)
         </function-signature>
     </function>
+    <function>
+        <name>createPersonne</name>
+        <function-class>biz.LesFonctionsEL</function-class>
+        <function-signature>
+            Personne createPersonne(java.lang.String , int)
+        </function-signature>
+    </function>
 </taglib>

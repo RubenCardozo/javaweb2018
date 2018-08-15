@@ -17,7 +17,7 @@
             if (exception instanceof StringIndexOutOfBoundsException) {
         %>
 
-        <p>Apprend à compter</p>
+        <p>Attention!!!</p>
         s!=4;
 
         <%} else {%>

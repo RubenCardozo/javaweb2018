@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-    Document   : newjsp
-    Created on : Aug 14, 2018, 10:05:33 AM
-    Author     : Administrator
--->
+
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
 
     <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
 
-    <h4>My footer</h4>
+    <h4>C'est ma footer</h4>
+    
+    <jsp:useBean id="barnabe2" scope="request" class="biz.Personne"> 
+        <jsp:getProperty name="barnabe2" property="nomComplet"/> 
+    </jsp:useBean>
+
 
 </jsp:root>

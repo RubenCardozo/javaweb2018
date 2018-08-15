@@ -16,4 +16,7 @@ public class LesFonctionsEL {
     public static int lanceDe(int max){
         return r.nextInt(max)+1;
     }
+    public static Personne createPersonne(String nom, int age){
+        return new Personne(nom, age);
+    }
 }

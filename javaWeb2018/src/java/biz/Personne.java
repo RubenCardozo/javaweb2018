@@ -11,13 +11,15 @@ import javax.servlet.http.HttpSessionBindingListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-public class Personne implements Serializable,  HttpSessionBindingListener{
+public class Personne implements  Serializable,  HttpSessionBindingListener,   IPersonne{
     private String nom;
     private int age;
 
+    @Override
     public String getNom() {
         return nom;
     }
+    @Override
     public String getNom(boolean upper) {
         return upper?nom.toUpperCase():nom.toLowerCase();
     }
@@ -26,6 +28,7 @@ public class Personne implements Serializable,  HttpSessionBindingListener{
         this.nom = nom;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
@@ -52,7 +55,8 @@ public class Personne implements Serializable,  HttpSessionBindingListener{
          System.out.println(event.getName()+" suprimée: "+this.getNom());
     }
 
+    @Override
     public String getNomComplet(){
-    return "Je suis "+nom+", j'ai "+age;
+    return "Je suis "+nom+", j'ai "+age+" ans";
     }
 }
