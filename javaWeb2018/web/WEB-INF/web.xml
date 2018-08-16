@@ -100,7 +100,7 @@
         <welcome-file>Formulaire.html</welcome-file>
     </welcome-file-list>
     <error-page>
-        <error-code>500</error-code>
+        <error-code>600</error-code>
         <location>/Error.jsp</location>
     </error-page>
     <error-page>

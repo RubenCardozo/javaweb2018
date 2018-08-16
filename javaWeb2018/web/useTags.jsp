@@ -24,7 +24,22 @@
         
         <my:body nombre="2">
         <br><%= 25*6 %> ${p.nom}<br>
-        </my:body>
+        </my:body> <br> 
+        <my:famille>
+            <my:enfant nom="albert" age="12"/>
+            <my:enfant nom="andrea" age="18"/>
+            <my:mari nom="pierre" age="50"/>
+            <my:femme nom="annette" age="45"/>
+        </my:famille><br>
+        <my:famille>
+            <my:enfant nom="albert" age="15"/>
+            <my:enfant nom="andrea" age="20"/>
+            <my:enfant nom="marie" age="18"/>
+            <my:mari nom="pierre" age="55"/>
+            <my:femme nom="annette" age="50"/>
+        </my:famille><br>
+        
+        <my:dynatt a="14" b="15" c="12" />
         
     </body>
 </html>
