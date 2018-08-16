@@ -66,13 +66,22 @@
                 -------last-------<br>
                 <c:remove var="ti" scope="page"/>
             </c:if>
-                
+
         </c:forEach>
-                <c:forTokens items="s,_6,_a,_3,_b,h_r" delims=",_" var="j">
-                    ${j.toUpperCase()} - 
-                </c:forTokens>
-
-
-
+                
+        <c:forTokens items="s,_6,_a,_3,_b,h_r" delims=",_" var="j">
+            ${j.toUpperCase()} - 
+        </c:forTokens><br>
+        <c:url value="/un espace/Rubén" context="/"/>
+        <c:url value="/un espace/Rubén" var="ur"/>
+            <c:param name="toto" value="45"/>
+        ${ur}<br>
+        <c:import url="/data/footer.jspx" var="foot" scope="request">
+            <c:param name="toto" value="15"/>
+        </c:import>
+        <%
+            String s= (String)request.getAttribute("foot");
+            out.write(s.toUpperCase());
+        %>
     </body>
 </html>
