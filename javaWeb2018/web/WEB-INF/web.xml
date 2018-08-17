@@ -66,6 +66,18 @@
         <servlet-class>coursweb.AsyncServlet</servlet-class>
         <async-supported>true</async-supported>
     </servlet>
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>sercurise</servlet-name>
+        <servlet-class>coursweb.Securise</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>securisejsp</servlet-name>
+        <jsp-file>/securise.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>First</servlet-name>
         <url-pattern>/premier</url-pattern>
@@ -88,6 +100,18 @@
     <servlet-mapping>
         <servlet-name>AsyncServlet</servlet-name>
         <url-pattern>/async</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>*.deb</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sercurise</servlet-name>
+        <url-pattern>/securise</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>securisejsp</servlet-name>
+        <url-pattern>/securise.jsp</url-pattern>
     </servlet-mapping>
     <session-config>
         <cookie-config>
@@ -114,4 +138,31 @@
             <el-ignored>true</el-ignored>
         </jsp-property-group>
     </jsp-config>
+    <security-constraint>
+        <display-name>pagesecure</display-name>
+        <web-resource-collection>
+            <web-resource-name>pagesecurise</web-resource-name>
+            <url-pattern>/securise.jsp</url-pattern>
+            <url-pattern>/securise2.jsp</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Utilisateurs</description>
+            <role-name>users</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>javaweb2018</realm-name>
+        <form-login-config>
+            <form-login-page>/WEB-INF/page/login.jsp</form-login-page>
+            <form-error-page>/WEB-INF/page/loginerror.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <role-name>utilisateurs</role-name>
+    </security-role>
+    <security-role>
+        <role-name>admins</role-name>
+    </security-role>
 </web-app>
