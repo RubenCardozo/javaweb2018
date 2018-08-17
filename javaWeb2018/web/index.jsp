@@ -57,7 +57,7 @@
                 out.print("<a href=\"?m=" +n+ "\">goto next</a>");
             %>
             
-            <%@include file="Footer.jspf" %>
+            <%@include file="/Footer.jspf" %>
             
         </h1>
     </body>

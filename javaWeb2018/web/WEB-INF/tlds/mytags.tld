@@ -31,57 +31,55 @@
     <tag>
         <name>famille</name>
         <tag-class>tags.FamilleTag</tag-class>
-        <body-content>JSP</body-content><!--JSP ou TAGUEPENDENT-->
+        <body-content>JSP</body-content>
+        <!--JSP ou TAGUEPENDENT-->
     </tag>
     <tag>
         <name>enfant</name>
         <tag-class>tags.EnfantTag</tag-class>
-        <body-content>empty</body-content><!--JSP ou TAGUEPENDENT ou empty-->
-    
+        <body-content>empty</body-content>
+        <!--JSP ou TAGUEPENDENT ou empty-->
         <attribute>
             <name>nom</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
-
         </attribute>
         <attribute>
             <name>age</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
             <type>int</type>
-        </attribute> 
+        </attribute>
     </tag>
   
     <tag>
         <name>mari</name>
         <tag-class>tags.MariTag</tag-class>
-        <body-content>empty</body-content><!--JSP ou TAGUEPENDENT ou empty-->
-    
+        <body-content>empty</body-content>
+        <!--JSP ou TAGUEPENDENT ou empty-->
         <attribute>
             <name>nom</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
-
         </attribute>
         <attribute>
             <name>age</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
             <type>int</type>
-        </attribute> 
+        </attribute>
     </tag>
   
     <tag>
         <name>femme</name>
         <tag-class>tags.FemmeTag</tag-class>
-        <body-content>empty</body-content><!--JSP ou TAGUEPENDENT ou empty-->
-    
+        <body-content>empty</body-content>
+        <!--JSP ou TAGUEPENDENT ou empty-->
         <attribute>
             <name>nom</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-    
         <attribute>
             <name>age</name>
             <required>true</required>
@@ -92,7 +90,29 @@
     <tag>
         <name>dynatt</name>
         <tag-class>tags.DynAttTag</tag-class>
-        <body-content>empty</body-content><!--JSP ou TAGUEPENDENT-->
+        <body-content>empty</body-content>
+        <!--JSP ou TAGUEPENDENT-->
         <dynamic-attributes>true</dynamic-attributes>
     </tag>
+    <tag>
+        <name>realbody</name>
+        <tag-class>tags.RealBodyTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>casse</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>simple</name>
+        <tag-class>tags.MySimpleTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+  
+    <tag-file>
+        <name>first</name>
+        <path>/WEB-INF/tags/first.tag</path>
+    </tag-file>
+    
 </taglib>

@@ -16,14 +16,14 @@
     </head>
     <body>
         <h1>Tags page</h1>
-        <c:set var="nom" value="Ma"/>
-        
+        <c:set var="nom" value="Maman"/>
+
         <c:set var="p" value="${ hasard:createPersonne("Albert", 65) }"/>
         <my:myempty case="upper" content="${p.nomComplet}"/><br>
         <my:myempty  content="Papa"/><br>
-        
+
         <my:body nombre="2">
-        <br><%= 25*6 %> ${p.nom}<br>
+            <br><%= 25 * 6%> ${p.nom}<br>
         </my:body> <br> 
         <my:famille>
             <my:enfant nom="albert" age="12"/>
@@ -38,8 +38,20 @@
             <my:mari nom="pierre" age="55"/>
             <my:femme nom="annette" age="50"/>
         </my:famille><br>
-        
-        <my:dynatt a="14" b="15" c="12" />
-        
+
+        <my:dynatt a="14" b="15" c="12" /><br>
+
+        <my:realbody casse="upper">
+            Contenu de <%="realbody= "%>${45 *6}
+        </my:realbody><br>
+
+        <my:simple>
+            Contenu ${"dans un EL"}
+        </my:simple><br>
+
+        <my:first message="Hello" personne="${p}" age="25" nombre="Ernesto">
+            world!!!
+        </my:first>
+        ${titi}
     </body>
 </html>
